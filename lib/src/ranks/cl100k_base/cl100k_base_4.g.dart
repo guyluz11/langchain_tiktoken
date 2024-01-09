@@ -1,4 +1,4 @@
-const Map<String, int> cl100kBase4 = {
+final Map<String, int> cl100kBase4 = {
   "IHNocmluaw==": 30000,
   "IEZY": 30001,
   "dGhyZXNob2xk": 30002,

@@ -97,7 +97,7 @@ class CoreBPEConstructor {
   // }
 
   factory CoreBPEConstructor.cl100kBase() {
-    Map<String, int> cl100kBase = cl100kBase1;
+    final Map<String, int> cl100kBase = cl100kBase1;
     cl100kBase.addAll(cl100kBase2);
     cl100kBase.addAll(cl100kBase3);
     cl100kBase.addAll(cl100kBase4);
@@ -113,7 +113,7 @@ class CoreBPEConstructor {
       name: "cl100k_base",
       patStr:
           r"(\?i:'s|'t|'re|'ve|'m|'ll|'d)|[^\r\n\p{L}\p{N}]?\p{L}+|\p{N}{1,3}| ?[^\s\p{L}\p{N}]+[\r\n]*|\s*[\r\n]+|\s+(?!\S)|\s+",
-      mergeableRanks: ranks.cl100kBase.map(
+      mergeableRanks: cl100kBase.map(
         (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
       ),
       specialTokens: {
@@ -133,10 +133,10 @@ class CoreBPEConstructor {
   final int? explicitNVocab;
 
   static const all = {
-    "gpt2",
-    "r50k_base",
-    "p50k_base",
-    "p50k_edit",
+    // "gpt2",
+    // "r50k_base",
+    // "p50k_base",
+    // "p50k_edit",
     "cl100k_base",
   };
 }
