@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:test/test.dart';
 import 'package:langchain_tiktoken/src/error/tiktoken_error.dart';
-import 'package:langchain_tiktoken/tiktoken.dart';
+import 'package:langchain_tiktoken/langchain_tiktoken.dart';
 
 void main() {
   test("encodingForModel", () {

@@ -1,5 +1,5 @@
 import 'package:langchain_tiktoken/src/error/tiktoken_error.dart';
-import 'package:langchain_tiktoken/tiktoken.dart';
+import 'package:langchain_tiktoken/langchain_tiktoken.dart';
 
 // ignore: constant_identifier_names
 const _MODEL_PREFIX_TO_ENCODING = {
