@@ -46,10 +46,10 @@ void main() async {
   stdout.writeln("Downloaded all encodings OK!");
 
   File("./lib/src/ranks/index.dart").writeAsStringSync([
-    "export 'gpt2.tiktoken.dart';",
-    "export 'cl100k_base.tiktoken.dart';",
-    "export 'r50k_base.tiktoken.dart';",
-    "export 'p50k_base.tiktoken.dart';",
+    "export 'gpt2.langchain_tiktoken.dart';",
+    "export 'cl100k_base.langchain_tiktoken.dart';",
+    "export 'r50k_base.langchain_tiktoken.dart';",
+    "export 'p50k_base.langchain_tiktoken.dart';",
   ].join("\n"));
 
   stdout.writeln("Generated ranks index file OK!");

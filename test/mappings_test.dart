@@ -1,13 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:langchain_tiktoken/src/ranks/tiktoken_data_process_center.dart';
 import 'package:test/test.dart';
 import 'package:langchain_tiktoken/src/error/tiktoken_error.dart';
 import 'package:langchain_tiktoken/src/mappings.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await TiktokenDataProcessCenter().initData(ignorePackageName: true);
-
+void main() {
   group('mappings', () {
     test('finds correct encoding for model name', () {
       expect(encodingForModel("gpt-3.5-turbo-0301").name, "cl100k_base");

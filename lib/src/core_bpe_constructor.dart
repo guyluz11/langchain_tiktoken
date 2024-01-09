@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:langchain_tiktoken/src/common/byte_array.dart';
 
-import 'ranks/index.dart';
+import 'ranks/index.dart' as ranks;
 
 // ignore: constant_identifier_names
 const ENDOFTEXT = "<|endoftext|>";
@@ -34,9 +34,9 @@ class CoreBPEConstructor {
       explicitNVocab: 50257,
       patStr:
           r"'s|'t|'re|'ve|'m|'ll|'d| ?\p{L}+| ?\p{N}+| ?[^\s\p{L}\p{N}]+|\s+(?!\S)|\s+",
-      mergeableRanks: TiktokenDataProcessCenter().gpt2.map(
-            (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
-          ),
+      mergeableRanks: ranks.gpt2.map(
+        (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
+      ),
       specialTokens: {ENDOFTEXT: 50256},
     );
   }
@@ -47,9 +47,9 @@ class CoreBPEConstructor {
       explicitNVocab: 50257,
       patStr:
           r"""'s|'t|'re|'ve|'m|'ll|'d| ?\p{L}+| ?\p{N}+| ?[^\s\p{L}\p{N}]+|\s+(?!\S)|\s+""",
-      mergeableRanks: TiktokenDataProcessCenter().r50kBase.map(
-            (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
-          ),
+      mergeableRanks: ranks.r50kBase.map(
+        (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
+      ),
       specialTokens: {ENDOFTEXT: 50256},
     );
   }
@@ -60,9 +60,9 @@ class CoreBPEConstructor {
       explicitNVocab: 50281,
       patStr:
           r"""'s|'t|'re|'ve|'m|'ll|'d| ?\p{L}+| ?\p{N}+| ?[^\s\p{L}\p{N}]+|\s+(?!\S)|\s+""",
-      mergeableRanks: TiktokenDataProcessCenter().p50kBase.map(
-            (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
-          ),
+      mergeableRanks: ranks.p50kBase.map(
+        (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
+      ),
       specialTokens: {ENDOFTEXT: 50256},
     );
   }
@@ -72,9 +72,9 @@ class CoreBPEConstructor {
       name: "p50k_edit",
       patStr:
           r"""'s|'t|'re|'ve|'m|'ll|'d| ?\p{L}+| ?\p{N}+| ?[^\s\p{L}\p{N}]+|\s+(?!\S)|\s+""",
-      mergeableRanks: TiktokenDataProcessCenter().p50kBase.map(
-            (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
-          ),
+      mergeableRanks: ranks.p50kBase.map(
+        (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
+      ),
       specialTokens: {
         ENDOFTEXT: 50256,
         FIM_PREFIX: 50281,
@@ -89,9 +89,9 @@ class CoreBPEConstructor {
       name: "cl100k_base",
       patStr:
           r"(\?i:'s|'t|'re|'ve|'m|'ll|'d)|[^\r\n\p{L}\p{N}]?\p{L}+|\p{N}{1,3}| ?[^\s\p{L}\p{N}]+[\r\n]*|\s*[\r\n]+|\s+(?!\S)|\s+",
-      mergeableRanks: TiktokenDataProcessCenter().cl100kBase.map(
-            (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
-          ),
+      mergeableRanks: ranks.cl100kBase.map(
+        (k, v) => MapEntry(ByteArray.fromList(base64Decode(k)), v),
+      ),
       specialTokens: {
         ENDOFTEXT: 100257,
         FIM_PREFIX: 100258,

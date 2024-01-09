@@ -1,15 +1,11 @@
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:flutter/material.dart';
+
 import 'package:test/test.dart';
 import 'package:langchain_tiktoken/src/error/tiktoken_error.dart';
-import 'package:langchain_tiktoken/src/ranks/index.dart';
 import 'package:langchain_tiktoken/langchain_tiktoken.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await TiktokenDataProcessCenter().initData(ignorePackageName: true);
-
+void main() {
   test("encodingForModel", () {
     expect(() => encodingForModel("gpt2"), returnsNormally);
     expect(encodingForModel("gpt2").name, equals("gpt2"));
