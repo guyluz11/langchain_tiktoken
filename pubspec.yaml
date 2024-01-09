@@ -1,0 +1,25 @@
+name: langchain_tiktoken
+description: A BPE tokeniser for use with OpenAI's models. It exposes APIs used for processing text using tokens.
+repository: https://github.com/orenagiv/langchain_tiktoken
+issue_tracker: https://github.com/orenagiv/langchain_tiktoken/issues?q=is%3Aissue+is%3Aopen+
+version: 1.0.0
+
+environment:
+  sdk: ^3.2.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  lints: ^2.1.0
+  test: ^1.24.0
+
+flutter:
+  assets:
+    - lib/tokens/cl100k_base/
+    - lib/tokens/gpt2/
+    - lib/tokens/p50k_base/
+    - lib/tokens/r50k_base/
+
+
