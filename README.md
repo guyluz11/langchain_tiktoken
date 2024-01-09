@@ -15,7 +15,7 @@ The main `Tiktoken` class exposes APIs that allow you to process text using toke
 For more examples, see the `/example` folder.
 
 ```dart
-import 'package:langchain_tiktoken/langchain_tiktoken.dart';
+import 'package:langchain_tiktoken/tiktoken.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await TiktokenDataProcessCenter().initData();
@@ -23,7 +23,7 @@ void main() async {
 ```
 
 ```dart
-import 'package:langchain_tiktoken/langchain_tiktoken.dart';
+import 'package:langchain_tiktoken/tiktoken.dart';
 
 // Load an encoding
 final encoding = encodingForModel("gpt-4");
@@ -42,7 +42,7 @@ assert(enc.decode(enc.encode("hello world")) == "hello world");
 ## Extending tiktoken
 You may wish to extend `Tiktoken` to support new encodings. You can do this by passing around the existing model:
 ```dart
-import 'package:langchain_tiktoken/langchain_tiktoken.dart';
+import 'package:langchain_tiktoken/tiktoken.dart';
 
 // Create a base
 final cl100kBase = encodingForModel("cl100k_base");

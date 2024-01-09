@@ -39,9 +39,8 @@ void createRankPlaceholders() {
 
   for (var rank in ranks.entries) {
     final content = template(rank.value);
-    File("$ranksDir${rank.key}.langchain_tiktoken.dart")
-        .writeAsStringSync(content);
-    fileNames.add("${rank.key}.langchain_tiktoken.dart");
+    File("$ranksDir${rank.key}.tiktoken.dart").writeAsStringSync(content);
+    fileNames.add("${rank.key}.tiktoken.dart");
   }
 
   File("${ranksDir}index.dart").writeAsStringSync(

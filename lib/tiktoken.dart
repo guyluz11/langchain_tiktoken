@@ -6,11 +6,11 @@ library tiktoken;
 import 'package:langchain_tiktoken/src/core_bpe_constructor.dart';
 import 'package:langchain_tiktoken/src/error/tiktoken_error.dart';
 
-import 'src/langchain_tiktoken.dart';
+import 'src/tiktoken.dart';
 
 export 'src/common/special_tokens_set.dart';
 export 'src/mappings.dart';
-export 'src/langchain_tiktoken.dart';
+export 'src/tiktoken.dart';
 
 // ignore: non_constant_identifier_names
 final _ENCODINGS = <String, Tiktoken>{};
