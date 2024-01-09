@@ -26,18 +26,18 @@ Tiktoken getEncoding(String encodingName) {
     case "cl100k_base":
       constructor = CoreBPEConstructor.cl100kBase();
       break;
-    case "gpt2":
-      constructor = CoreBPEConstructor.gpt2();
-      break;
-    case "r50k_base":
-      constructor = CoreBPEConstructor.r50kBase();
-      break;
-    case "p50k_base":
-      constructor = CoreBPEConstructor.p50kBase();
-      break;
-    case "p50k_edit":
-      constructor = CoreBPEConstructor.p50kEdit();
-      break;
+    // case "gpt2":
+    //   constructor = CoreBPEConstructor.gpt2();
+    //   break;
+    // case "r50k_base":
+    //   constructor = CoreBPEConstructor.r50kBase();
+    //   break;
+    // case "p50k_base":
+    //   constructor = CoreBPEConstructor.p50kBase();
+    //   break;
+    // case "p50k_edit":
+    //   constructor = CoreBPEConstructor.p50kEdit();
+    //   break;
     default:
       throw TiktokenError("Unknown encoding $encodingName");
   }
