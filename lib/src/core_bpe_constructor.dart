@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:langchain_tiktoken/src/common/byte_array.dart';
 
-import 'ranks/index.dart' as ranks;
+// import 'ranks/index.dart' as ranks;
 
 import 'ranks/cl100k_base/cl100k_base_1.g.dart';
 import 'ranks/cl100k_base/cl100k_base_2.g.dart';

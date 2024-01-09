@@ -2,7 +2,7 @@ name: langchain_tiktoken
 description: A BPE tokeniser for use with OpenAI's models. It exposes APIs used for processing text using tokens.
 repository: https://github.com/orenagiv/langchain_tiktoken
 issue_tracker: https://github.com/orenagiv/langchain_tiktoken/issues?q=is%3Aissue+is%3Aopen+
-version: 1.0.0
+version: 1.0.0+1
 
 environment:
   sdk: ^3.2.3
