@@ -175,13 +175,12 @@ class CoreBPE {
   }
 
   List<String> splitTextWithSpecialCharacters(String text) {
-    // Replace spaces with ▁
     // Replace spaces with ▁ and prepend ▁ to the text
     String replacedText = text.replaceAll(" ", "▁");
     replacedText = '▁$replacedText';
 
-    // Regex to match words (including words with apostrophes and special characters)
-    RegExp pattern = RegExp(r"▁[\w\d'.,!?;:-]+");
+    // Regex to match words, special characters, and split at apostrophes
+    RegExp pattern = RegExp(r"▁[\w\d]+|['.,!?;:-]|[\w\d]+");
 
     // Find all matches and return as a list
     List<String> tokens = pattern
