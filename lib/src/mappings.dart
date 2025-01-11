@@ -24,6 +24,7 @@ const _MODEL_TO_ENCODING = {
   "curie": "r50k_base",
   "babbage": "r50k_base",
   "ada": "r50k_base",
+  "t5": "t5_base",
   // code
   "code-davinci-002": "p50k_base",
   "code-davinci-001": "p50k_base",

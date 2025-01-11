@@ -147,6 +147,50 @@ class CoreBPE {
     return Tuple2(Uint32List.fromList(tokens), lastPieceTokenLen);
   }
 
+  Tuple2<Uint32List, int> encodeNativeT5(
+    String text,
+    Set<String> allowedSpecial,
+  ) {
+    // Find all matches and return as a list
+    List<String> words = splitTextWithSpecialCharacters(text);
+
+    int lastPieceTokenLen = 0;
+    final tokens = <int>[];
+
+    for (var word in words) {
+      var piece = ByteArray.fromList(utf8.encode(word));
+      if (encoder.containsKey(piece)) {
+        lastPieceTokenLen = 1;
+        tokens.add(encoder[piece]!);
+        continue;
+      }
+
+      var encoded = util.bytePairEncode(piece, encoder);
+
+      lastPieceTokenLen = encoded.length;
+      tokens.addAll(encoded);
+    }
+
+    return Tuple2(Uint32List.fromList(tokens), lastPieceTokenLen);
+  }
+
+  List<String> splitTextWithSpecialCharacters(String text) {
+    // Replace spaces with ▁
+    // Replace spaces with ▁ and prepend ▁ to the text
+    String replacedText = text.replaceAll(" ", "▁");
+    replacedText = '▁$replacedText';
+
+    // Regex to match words (including words with apostrophes and special characters)
+    RegExp pattern = RegExp(r"▁[\w\d'.,!?;:-]+");
+
+    // Find all matches and return as a list
+    List<String> tokens = pattern
+        .allMatches(replacedText)
+        .map((match) => match.group(0)!)
+        .toList();
+    return tokens;
+  }
+
   Tuple2<List<int>, Set<List<int>>> encodeUnstableNative(
     String text,
     Set<String> allowedSpecial,
@@ -236,7 +280,11 @@ class CoreBPE {
   ByteArray decodeNative(List<int> tokens) {
     List<int> ret = [];
     for (var token in tokens) {
-      final tokenBytes = (decoder[token] ?? specialTokensDecoder[token])!.bytes;
+      final tokenBytes = (decoder[token] ??
+              specialTokensDecoder[token] ??
+              ByteArray.fromList([3]))
+          .bytes;
+
       ret.addAll(tokenBytes);
     }
 

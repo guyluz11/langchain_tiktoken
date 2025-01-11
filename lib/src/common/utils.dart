@@ -20,13 +20,22 @@ bool listEquals<T>(List<T> a, List<T> b) {
 }
 
 List<int> bytePairEncode(ByteArray piece, HashMap<ByteArray, int> ranks) {
-  if (piece.length == 1) return [ranks[piece]!];
+  if (ranks[piece] != null && piece.length == 1) return [ranks[piece]!];
 
-  return _bytePairMerge(
+  List<int> bytePairMerge = _bytePairMerge(
     piece,
     ranks,
-    (start, end) => ranks[piece.sublist(start, end)]!,
+
+    /// Value 3 is getting treated as a space
+    (start, end) => ranks[piece.sublist(start, end)] ?? 3,
   );
+
+  return bytePairMerge.fold<List<int>>([], (result, value) {
+    if (value != 3 || (result.isEmpty || result.last != 3)) {
+      result.add(value);
+    }
+    return result;
+  });
 }
 
 List<T> _bytePairMerge<T>(

@@ -9,8 +9,8 @@ import 'package:langchain_tiktoken/src/error/tiktoken_error.dart';
 import 'src/langchain_tiktoken_base.dart';
 
 export 'src/common/special_tokens_set.dart';
-export 'src/mappings.dart';
 export 'src/langchain_tiktoken_base.dart';
+export 'src/mappings.dart';
 
 // ignore: non_constant_identifier_names
 final _ENCODINGS = <String, Tiktoken>{};
@@ -25,6 +25,9 @@ Tiktoken getEncoding(String encodingName) {
   switch (encodingName) {
     case 'cl100k_base':
       constructor = CoreBPEConstructor.cl100kBase();
+      break;
+    case 't5_base':
+      constructor = CoreBPEConstructor.t5Base();
       break;
     // case 'gpt2':
     //   constructor = CoreBPEConstructor.gpt2();

@@ -121,6 +121,10 @@ class Tiktoken {
 
     _verifyDisallowed(text, disallowedSpecialSet);
 
+    if (name == 't5_base') {
+      return _coreBPE.encodeNativeT5(text, allowedSpecialSet).i1;
+    }
+
     return _coreBPE.encodeNative(text, allowedSpecialSet).i1;
   }
 
@@ -210,9 +214,12 @@ class Tiktoken {
   /// enc.decode([31373, 995]); // 'hello world'
   /// ```
   String decode(List<int> tokens, {bool allowMalformed = true}) {
-    return _coreBPE.decodeNative(tokens).asString(
+    return _coreBPE
+        .decodeNative(tokens)
+        .asString(
           allowMalformed: allowMalformed,
-        );
+        )
+        .replaceAll("▁", " ");
   }
 
   /// Decodes a token into bytes.
