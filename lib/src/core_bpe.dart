@@ -152,7 +152,7 @@ class CoreBPE {
     Set<String> allowedSpecial,
   ) {
     // Find all matches and return as a list
-    List<String> words = splitTextWithSpecialCharacters(text);
+    List<String> words = splitTextWithSpecialCharacters(text.toLowerCase());
 
     int lastPieceTokenLen = 0;
     final tokens = <int>[];
